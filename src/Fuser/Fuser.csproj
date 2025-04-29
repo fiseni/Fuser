@@ -4,10 +4,10 @@
     <AssemblyName>Fuser</AssemblyName>
     <PackageId>Fuser</PackageId>
     <Title>Fuser</Title>
-    <Description>MSBuild task that merges referenced assemblies directly into your project output at build time.</Description>
+    <Description>MSBuild task for merging assemblies.</Description>
     <Summary>MSBuild task that merges referenced assemblies directly into your project output at build time.</Summary>
     
-    <Version>0.0.1</Version>
+    <Version>0.0.1-alpha1</Version>
     <PackageTags>fiseni pozitron msbuild assembly merge</PackageTags>
     <PackageReleaseNotes>
     </PackageReleaseNotes>
@@ -17,6 +17,10 @@
     <PackageReference Include="Mono.Cecil" />
     <PackageReference Include="Microsoft.Build.Framework" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Fuser.targets" Pack="true" PackagePath="build" />
   </ItemGroup>
 
 </Project>
