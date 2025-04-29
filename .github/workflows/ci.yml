@@ -18,6 +18,6 @@ jobs:
       with:
         dotnet-version: 9.x
     - name: Build
-      run: dotnet build --configuration Release
+      run: dotnet build ci.slnf --configuration Release
     - name: Test
-      run: dotnet test --configuration Release --no-build --no-restore
+      run: dotnet test ci.slnf --configuration Release --no-build --no-restore

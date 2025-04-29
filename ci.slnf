@@ -1,0 +1,8 @@
+{
+  "solution": {
+    "path": "Fuser.sln",
+    "projects": [
+      "src\\Fuser\\Fuser.csproj"
+    ]
+  }
+}
