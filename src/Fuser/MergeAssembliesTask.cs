@@ -45,6 +45,9 @@ public class MergeAssembliesTask : Task
 
             Log.LogMessage(MessageImportance.High, "Fuser: Merging completed successfully.");
 
+            // We also may delete the merged files.
+            // But this won't work under VS, as the files are still in use.
+            // I'll fix it later on.
             if (DeleteMergedFiles)
             {
                 foreach (var assemblyItem in AssembliesToMerge)
