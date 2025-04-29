@@ -6,7 +6,7 @@
 
 The main motivation is to avoid dependency conflicts and version mismatches in shared hosting and plugin environments. 
 
-I still have no clear plan; the project is still in its inception. A colleague in the community brought up the idea, and I'm open to any suggestions to shape the library's goals. Tell me about your specific scenarios and the pain points you're facing.
+The project is still in its infancy, I haven't clearly defined the objectives yet. Tell me about your specific scenarios and the pain points you're facing.
 
 ### Initial idea
 

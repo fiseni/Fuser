@@ -1,0 +1,38 @@
+<Project>
+
+  <PropertyGroup>
+    <RootNamespace>Fuser</RootNamespace>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>false</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Deterministic>true</Deterministic>
+    <DevelopmentDependency>true</DevelopmentDependency>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="Package MetaData">
+    <Authors>Fati Iseni</Authors>
+    <Company>Pozitron Group</Company>
+    <Copyright>Copyright © 2025 Pozitron Group</Copyright>
+    <Product>Pozitron MSBuild Tasks</Product>
+
+    <PackageProjectUrl>https://github.com/fiseni/Fuser</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fiseni/Fuser</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
+    <PackageIconUrl>https://pozitrongroup.com/PozitronLogo.png</PackageIconUrl>
+    <PackageIcon>pozitronicon.png</PackageIcon>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <None Include="../../pozitronicon.png" Pack="true" PackagePath="\" />
+    <None Include="../../readme-nuget.md" Pack="true" PackagePath="\" />
+    <None Include="../../LICENSE.txt" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>

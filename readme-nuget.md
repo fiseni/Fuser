@@ -1,0 +1,1 @@
+**Fuser** is an MSBuild task that merges selected referenced assemblies directly into your project's output during build.
