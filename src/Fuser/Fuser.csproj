@@ -14,7 +14,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Mono.Cecil" />
+    <PackageReference Include="ILRepack.Lib" />
     <PackageReference Include="Microsoft.Build.Framework" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" />
   </ItemGroup>
@@ -22,7 +22,7 @@
   <ItemGroup>
     <None Include="build\**\*" Pack="true" PackagePath="build\" />
     <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="build" />
-    <None Include="$(OutputPath)\Mono.Cecil*.dll" Pack="true" PackagePath="build" />
+    <None Include="$(OutputPath)\ILRepack.dll" Pack="true" PackagePath="build" />
   </ItemGroup>
 
 </Project>
