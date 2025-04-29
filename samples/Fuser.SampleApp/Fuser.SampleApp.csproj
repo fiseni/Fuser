@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fuser.Lib1\Fuser.Lib1.csproj">
+      <Merge>true</Merge>
+    </ProjectReference>
+    <ProjectReference Include="..\Fuser.Lib2\Fuser.Lib2.csproj">
+      <Merge>true</Merge>
+    </ProjectReference>
+  </ItemGroup>
+  
+  <!-- Import the Fuser.targets file -->
+  <Import Project="..\..\src\Fuser\build\Fuser.targets" />
+
+</Project>
