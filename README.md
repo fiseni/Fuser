@@ -1,4 +1,10 @@
-# Fuser
+<img align="left" src="pozitronlogo.png" width="120" height="120">
+
+&nbsp; [![NuGet](https://img.shields.io/nuget/v/Fuser.svg)](https://www.nuget.org/packages/Fuser)
+
+&nbsp; [![CI Build](https://github.com/fiseni/Fuser/actions/workflows/ci.yml/badge.svg)](https://github.com/fiseni/Fuser/actions/workflows/ci.yml)
+
+---
 
 **Fuser** is an MSBuild task that merges selected referenced assemblies directly into your project's output during build.
 
