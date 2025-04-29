@@ -4,7 +4,8 @@
 
 &nbsp; [![CI Build](https://github.com/fiseni/Fuser/actions/workflows/ci.yml/badge.svg)](https://github.com/fiseni/Fuser/actions/workflows/ci.yml)
 
----
+&nbsp; 
+# Fuser
 
 **Fuser** is an MSBuild task that merges selected referenced assemblies directly into your project's output during build.
 
