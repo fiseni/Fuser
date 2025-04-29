@@ -1,0 +1,32 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  
+  <PropertyGroup>
+    <FuserAssembly>$(MSBuildThisFileDirectory)Fuser.dll</FuserAssembly>
+    <FuserAssembly Condition="!Exists('$(FuserAssembly)')">$(MSBuildThisFileDirectory)..\bin\$(Configuration)\netstandard2.0\Fuser.dll</FuserAssembly>
+  </PropertyGroup>
+
+  <UsingTask
+    TaskName="Fuser.MergeAssembliesTask"
+    AssemblyFile="$(FuserAssembly)" />
+
+  <Target Name="FuserMergeAssemblies" AfterTargets="AfterBuild">
+    <ItemGroup>
+      <AssembliesToMerge Include="@(ReferencePath)" Condition="'%(ReferencePath.Merge)' == 'true'" />
+    </ItemGroup>
+
+    <!-- Temporary output path -->
+    <PropertyGroup>
+      <FuserTempOutput>$(TargetPath).fused</FuserTempOutput>
+    </PropertyGroup>
+
+    <Fuser.MergeAssembliesTask
+      MainAssemblyPath="$(TargetPath)"
+      AssembliesToMerge="@(AssembliesToMerge)"
+      OutputPath="$(FuserTempOutput)"
+      DeleteMergedFiles="true" />
+
+    <!-- Overwrite the original only if the task succeeded -->
+    <!--<Copy SourceFiles="$(FuserTempOutput)" DestinationFiles="$(TargetPath)" OverwriteReadOnlyFiles="true" />-->
+    <!--<Delete Files="$(FuserTempOutput)" />-->
+  </Target>
+</Project>

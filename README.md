@@ -14,7 +14,16 @@ Mark any package you want to be merged into your output as follows.
 
 ```xml
 <ItemGroup>
-  <PackageReference Include="Some.Library" Version="1.2.3">
+  <ProjectReference Include="..\Lib1\Lib1.csproj">
+    <Merge>true</Merge>
+  </ProjectReference>
+
+  <Reference Include="Lib2">
+    <HintPath>Lib2.dll</HintPath>
+    <Merge>true</Merge>
+  </Reference>
+
+  <PackageReference Include="Lib3" Version="1.2.3">
     <Merge>true</Merge>
   </PackageReference>
 

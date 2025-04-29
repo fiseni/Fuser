@@ -3,6 +3,7 @@ using Microsoft.Build.Utilities;
 using Mono.Cecil;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -16,12 +17,17 @@ public class MergeAssembliesTask : Task
     public string MainAssemblyPath { get; set; } = "";
 
     [Required]
-    public ITaskItem[] AssembliesToMerge { get; set; } = Array.Empty<ITaskItem>();
+    public string OutputPath { get; set; } = "";
 
-    public bool DeleteMergedFiles { get; set; } = true;
+    public bool DeleteMergedFiles { get; set; } = false;
+
+    [Required]
+    public ITaskItem[] AssembliesToMerge { get; set; } = Array.Empty<ITaskItem>();
 
     public override bool Execute()
     {
+        //Debugger.Launch();
+
         try
         {
             Log.LogMessage(MessageImportance.High, $"Fuser: Merging assemblies into {MainAssemblyPath}");
@@ -38,6 +44,10 @@ public class MergeAssembliesTask : Task
             foreach (var assemblyItem in AssembliesToMerge)
             {
                 var path = assemblyItem.ItemSpec;
+
+                // Stupid hack for now
+                if (path.Contains("Fuser.dll")) continue;
+
                 var assembly = AssemblyDefinition.ReadAssembly(path, readerParams);
                 assembliesToMergeDefs.Add(assembly);
                 mergedAssemblyNames.Add(assembly.Name.Name);
@@ -108,7 +118,7 @@ public class MergeAssembliesTask : Task
                 Log.LogMessage(MessageImportance.Low, $"Fuser: Removed reference to {reference.Name}");
             }
 
-            mainAssembly.Write(MainAssemblyPath);
+            mainAssembly.Write(OutputPath);
 
             // Delete merged files if requested
             if (DeleteMergedFiles)
