@@ -5,7 +5,7 @@
     <PackageId>Fuser</PackageId>
     <Title>Fuser</Title>
     <Description>MSBuild task for merging assemblies.</Description>
-    <Summary>MSBuild task that merges referenced assemblies directly into your project output at build time.</Summary>
+    <Summary>MSBuild task that merges selected referenced assemblies into your project's output assembly at build time.</Summary>
     
     <Version>0.0.1-alpha1</Version>
     <PackageTags>fiseni pozitron msbuild assembly merge</PackageTags>
