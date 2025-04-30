@@ -2,27 +2,73 @@
 
   <PropertyGroup>
     <AssemblyName>Fuser</AssemblyName>
+    <RootNamespace>Fuser</RootNamespace>
+    <TargetFramework>net472</TargetFramework>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Build and Packaging">
+    <BuildOutputTargetFolder>tasks</BuildOutputTargetFolder>
+    <OutputPath>$(BuildOutputTargetFolder)</OutputPath>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <DebugType>embedded</DebugType>
+    <EmbedAllSources>true</EmbedAllSources>
+
+    <Deterministic>true</Deterministic>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <IncludeContentInPack>true</IncludeContentInPack>
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
+  </PropertyGroup>
+
+  <ItemGroup Label="Packaging">
+    <None Include="build/*" Pack="true" PackagePath="build" />
+    <None Include="$(OutputPath)" Visible="false" />
+    <None Include="$(OutputPath)/Fuser.dll" Pack="true" PackagePath="tasks" Visible="false" />
+    <None Include="$(OutputPath)/ILRepack.dll" Pack="true" PackagePath="tasks" Visible="false" />
+  </ItemGroup>
+
+  <PropertyGroup Label="Package MetaData">
+    <Version>0.0.1-alpha3</Version>
     <PackageId>Fuser</PackageId>
     <Title>Fuser</Title>
     <Description>MSBuild task for merging assemblies.</Description>
     <Summary>MSBuild task that merges selected referenced assemblies into your project's output assembly at build time.</Summary>
-    
-    <Version>0.0.1-alpha2</Version>
     <PackageTags>fiseni pozitron msbuild assembly merge</PackageTags>
     <PackageReleaseNotes>
     </PackageReleaseNotes>
   </PropertyGroup>
 
+  <PropertyGroup Label="Project MetaData">
+    <Authors>Fati Iseni</Authors>
+    <Company>Pozitron Group</Company>
+    <Copyright>Copyright © 2025 Pozitron Group</Copyright>
+    <Product>Pozitron MSBuild Tasks</Product>
+
+    <PackageProjectUrl>https://github.com/fiseni/Fuser</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/fiseni/Fuser</RepositoryUrl>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
+    <PackageIconUrl>https://pozitrongroup.com/PozitronLogo.png</PackageIconUrl>
+    <PackageIcon>pozitronicon.png</PackageIcon>
+  </PropertyGroup>
+
+  <ItemGroup Label="Project MetaData">
+    <None Include="../../pozitronicon.png" Pack="true" PackagePath="" Visible="false" />
+    <None Include="../../readme-nuget.md" Pack="true" PackagePath="" Visible="false" />
+    <None Include="../../LICENSE.txt" Pack="true" PackagePath="" Visible="false" />
+  </ItemGroup>
+  
   <ItemGroup>
     <PackageReference Include="ILRepack.Lib" />
-    <PackageReference Include="Microsoft.Build.Framework" />
-    <PackageReference Include="Microsoft.Build.Utilities.Core" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="build\**\*" Pack="true" PackagePath="build\" />
-    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="build" />
-    <None Include="$(OutputPath)\ILRepack.dll" Pack="true" PackagePath="build" />
+    <PackageReference Include="Microsoft.Build.Utilities.Core" PrivateAssets="all" ExcludeAssets="runtime" />
   </ItemGroup>
 
 </Project>

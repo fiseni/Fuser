@@ -1,22 +1,28 @@
 <Project>
+  
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
     <!--<CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>-->
   </PropertyGroup>
+  
   <ItemGroup Label="Package dependencies">
     <PackageVersion Include="ILRepack.Lib" Version="2.0.41" />
     <PackageVersion Include="Microsoft.Build.Framework" Version="17.13.9" />
     <PackageVersion Include="Microsoft.Build.Utilities.Core" Version="17.13.9" />
   </ItemGroup>
+  
   <ItemGroup Label="Test projects dependencies">
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.11.1" />
     <PackageVersion Include="xunit" Version="2.9.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
     <PackageVersion Include="coverlet.collector" Version="6.0.2" />
   </ItemGroup>
+  
   <ItemGroup Label="Sample projects">
-    <PackageVersion Include="Fuser" Version="0.0.1-alpha1" />
+    <PackageVersion Include="Fuser" Version="0.0.1-alpha3" />
   </ItemGroup>
+  
   <ItemGroup Label="Transitive Updates">
   </ItemGroup>
+  
 </Project>

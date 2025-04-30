@@ -386,3 +386,5 @@ FodyWeavers.xsd
 
 # Developer config files
 **/appsettings.Development*.json
+
+src/Fuser/tasks/

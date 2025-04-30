@@ -1,13 +1,8 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <PropertyGroup>
-    <FuserAssembly>$(MSBuildThisFileDirectory)Fuser.dll</FuserAssembly>
-    <FuserAssembly Condition="!Exists('$(FuserAssembly)')">$(MSBuildThisFileDirectory)..\bin\$(Configuration)\Fuser.dll</FuserAssembly>
-  </PropertyGroup>
-
   <UsingTask
     TaskName="Fuser.MergeAssembliesTask"
-    AssemblyFile="$(FuserAssembly)"
+    AssemblyFile="$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)', '..', 'tasks', 'Fuser.dll'))"
     TaskFactory="TaskHostFactory" />
 
   <Target Name="FuserMergeAssemblies" AfterTargets="AfterBuild">
