@@ -40,4 +40,4 @@ Mark any package you want to be merged into your output as follows.
 
 ✅ No need to manually merge or pack.  
 ✅ Works during normal `dotnet build` and `dotnet test`.  
-✅ Simple configuration with a `<Merge>true</Merge>` property on any `PackageReference`.
+✅ Simple configuration with a `<Merge>true</Merge>` property on any `Reference`.
