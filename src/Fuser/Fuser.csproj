@@ -7,7 +7,7 @@
     <Description>MSBuild task for merging assemblies.</Description>
     <Summary>MSBuild task that merges selected referenced assemblies into your project's output assembly at build time.</Summary>
     
-    <Version>0.0.1-alpha1</Version>
+    <Version>0.0.1-alpha2</Version>
     <PackageTags>fiseni pozitron msbuild assembly merge</PackageTags>
     <PackageReleaseNotes>
     </PackageReleaseNotes>

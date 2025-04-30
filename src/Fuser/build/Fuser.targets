@@ -11,13 +11,13 @@
 
   <Target Name="FuserMergeAssemblies" AfterTargets="AfterBuild">
     <ItemGroup>
-      <AssembliesToMerge Include="@(ReferencePath)" Condition="'%(ReferencePath.Merge)' == 'true'" />
+      <ReferencesToMerge Include="@(ReferencePath)" Condition="'%(ReferencePath.Merge)' == 'true'" />
     </ItemGroup>
 
     <Fuser.MergeAssembliesTask
       MainAssemblyPath="$(TargetPath)"
-      AssembliesToMerge="@(AssembliesToMerge)"
-      DeleteMergedFiles="false" />
+      ReferencesToMerge="@(ReferencesToMerge)"
+      DeleteMergedFiles="true" />
 
   </Target>
 </Project>

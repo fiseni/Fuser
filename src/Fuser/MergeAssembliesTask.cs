@@ -1,6 +1,6 @@
-﻿using Microsoft.Build.Framework;
+﻿using ILRepacking;
+using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
-using ILRepacking;
 using System;
 using System.IO;
 using System.Linq;
@@ -16,7 +16,7 @@ public class MergeAssembliesTask : Task
     public bool DeleteMergedFiles { get; set; } = false;
 
     [Required]
-    public ITaskItem[] AssembliesToMerge { get; set; } = Array.Empty<ITaskItem>();
+    public ITaskItem[] ReferencesToMerge { get; set; } = Array.Empty<ITaskItem>();
 
     public override bool Execute()
     {
@@ -24,15 +24,15 @@ public class MergeAssembliesTask : Task
         {
             Log.LogMessage(MessageImportance.High, $"Fuser: Merging assemblies into {MainAssemblyPath}");
 
-            var allAssemblies = new[] { MainAssemblyPath }
-                .Concat(AssembliesToMerge.Select(a => a.ItemSpec))
+            var assembliesToMerge = new[] { MainAssemblyPath }
+                .Concat(ReferencesToMerge.Select(x => x.ItemSpec))
                 .Distinct()
                 .ToArray();
 
             var repackOptions = new RepackOptions
             {
                 OutputFile = MainAssemblyPath,
-                InputAssemblies = allAssemblies,
+                InputAssemblies = assembliesToMerge,
                 DebugInfo = true,
                 Internalize = true,
                 Parallel = false,
@@ -45,22 +45,19 @@ public class MergeAssembliesTask : Task
 
             Log.LogMessage(MessageImportance.High, "Fuser: Merging completed successfully.");
 
-            // We also may delete the merged files.
-            // But this won't work under VS, as the files are still in use.
-            // I'll fix it later on.
             if (DeleteMergedFiles)
             {
-                foreach (var assemblyItem in AssembliesToMerge)
+                var filesToDelete = GetFilesToDelete(MainAssemblyPath, assembliesToMerge);
+                foreach (var filePath in filesToDelete)
                 {
                     try
                     {
-                        var path = assemblyItem.ItemSpec;
-                        File.Delete(path);
-                        Log.LogMessage(MessageImportance.Low, $"Fuser: Deleted merged file {path}");
+                        File.Delete(filePath);
+                        Log.LogMessage(MessageImportance.Low, $"Fuser: Deleted merged file {filePath}");
                     }
                     catch (Exception ex)
                     {
-                        Log.LogWarning($"Fuser: Failed to delete merged file '{assemblyItem.ItemSpec}': {ex.Message}");
+                        Log.LogWarning($"Fuser: Failed to delete merged file '{filePath}': {ex.Message}");
                     }
                 }
             }
@@ -72,5 +69,17 @@ public class MergeAssembliesTask : Task
             Log.LogErrorFromException(ex, true);
             return false;
         }
+    }
+
+    private static string[] GetFilesToDelete(string mainAssemblyPath, string[] assemblies)
+    {
+        var mainAssemblyDir = Path.GetDirectoryName(mainAssemblyPath)!;
+        var mainAssemblyBaseName = Path.GetFileNameWithoutExtension(mainAssemblyPath);
+
+        return assemblies
+            .Select(Path.GetFileNameWithoutExtension)
+            .Where(name => !string.Equals(name, mainAssemblyBaseName, StringComparison.OrdinalIgnoreCase))
+            .SelectMany(baseName => Directory.GetFiles(mainAssemblyDir, baseName + ".*"))
+            .ToArray();
     }
 }
