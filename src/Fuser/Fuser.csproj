@@ -12,7 +12,7 @@
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
-  <PropertyGroup Label="Package MetaData">
+  <PropertyGroup Label="Package Metadata">
     <Version>0.0.1-alpha3</Version>
     <PackageId>Fuser</PackageId>
     <Title>Fuser</Title>
