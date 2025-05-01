@@ -1,4 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\ProjectMetadata.props" />
+  <Import Project="..\..\ProjectMetadata.targets" />
 
   <PropertyGroup>
     <AssemblyName>Fuser</AssemblyName>
@@ -7,6 +10,17 @@
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Package MetaData">
+    <Version>0.0.1-alpha3</Version>
+    <PackageId>Fuser</PackageId>
+    <Title>Fuser</Title>
+    <Description>MSBuild task for merging assemblies.</Description>
+    <Summary>MSBuild task that merges selected referenced assemblies into your project's output assembly at build time.</Summary>
+    <PackageTags>fiseni pozitron msbuild assembly merge</PackageTags>
+    <PackageReleaseNotes>
+    </PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Label="Build and Packaging">
@@ -30,39 +44,6 @@
     <None Include="build\*" Pack="true" PackagePath="build\" />
     <None Include="$(OutputPath)Fuser.dll" Pack="true" PackagePath="tasks\" Visible="false" />
     <None Include="$(OutputPath)ILRepack.dll" Pack="true" PackagePath="tasks\" Visible="false" />
-  </ItemGroup>
-
-  <PropertyGroup Label="Package MetaData">
-    <Version>0.0.1-alpha3</Version>
-    <PackageId>Fuser</PackageId>
-    <Title>Fuser</Title>
-    <Description>MSBuild task for merging assemblies.</Description>
-    <Summary>MSBuild task that merges selected referenced assemblies into your project's output assembly at build time.</Summary>
-    <PackageTags>fiseni pozitron msbuild assembly merge</PackageTags>
-    <PackageReleaseNotes>
-    </PackageReleaseNotes>
-  </PropertyGroup>
-
-  <PropertyGroup Label="Project MetaData">
-    <Authors>Fati Iseni</Authors>
-    <Company>Pozitron Group</Company>
-    <Copyright>Copyright © 2025 Pozitron Group</Copyright>
-    <Product>Pozitron MSBuild Tasks</Product>
-
-    <PackageProjectUrl>https://github.com/fiseni/Fuser</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/fiseni/Fuser</RepositoryUrl>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <RepositoryType>git</RepositoryType>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
-    <PackageIconUrl>https://pozitrongroup.com/PozitronLogo.png</PackageIconUrl>
-    <PackageIcon>pozitronicon.png</PackageIcon>
-  </PropertyGroup>
-
-  <ItemGroup Label="Project MetaData">
-    <None Include="../../pozitronicon.png" Pack="true" PackagePath="" Visible="false" />
-    <None Include="../../readme-nuget.md" Pack="true" PackagePath="" Visible="false" />
-    <None Include="../../LICENSE.txt" Pack="true" PackagePath="" Visible="false" />
   </ItemGroup>
   
   <ItemGroup>

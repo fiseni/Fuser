@@ -2,6 +2,7 @@
 using Microsoft.Build.Framework;
 using Microsoft.Build.Utilities;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -20,6 +21,8 @@ public class MergeAssembliesTask : Task
 
     public override bool Execute()
     {
+        //Debugger.Launch();
+
         try
         {
             Log.LogMessage(MessageImportance.High, $"Fuser: Merging assemblies into {MainAssemblyPath}");
