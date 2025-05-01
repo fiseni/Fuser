@@ -30,10 +30,6 @@ Mark any package you want to be merged into your output as follows.
     <Merge>true</Merge>
   </Reference>
 
-  <PackageReference Include="Lib3" Version="1.2.3">
-    <Merge>true</Merge>
-  </PackageReference>
-
   <PackageReference Include="Fuser" Version="0.0.1-alpha3" PrivateAssets="All" />
 </ItemGroup>
 ```
