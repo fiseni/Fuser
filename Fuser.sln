@@ -12,8 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_meta", "_meta", "{8EC462FD
 		.gitignore = .gitignore
 		Directory.Packages.props = Directory.Packages.props
 		exclusion.dic = exclusion.dic
-		ProjectMetadata.props = ProjectMetadata.props
-		ProjectMetadata.targets = ProjectMetadata.targets
+		src\ProjectMetadata.props = src\ProjectMetadata.props
+		src\ProjectMetadata.targets = src\ProjectMetadata.targets
 		README.md = README.md
 	EndProjectSection
 EndProject
