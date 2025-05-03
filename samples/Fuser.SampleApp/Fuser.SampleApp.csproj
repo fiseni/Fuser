@@ -15,8 +15,10 @@
       <Merge>true</Merge>
     </ProjectReference>
   </ItemGroup>
-  
-  <!-- Import the Fuser.targets file -->
+
+  <!-- All you need to do is to install the Nuget package -->
+  <!-- Here I'm importing the target files directly for local development. -->
+  <Import Project="..\..\src\Fuser\build\Fuser.props" />
   <Import Project="..\..\src\Fuser\build\Fuser.targets" />
 
 </Project>

@@ -1,0 +1,13 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <FuserAssembly>$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)', '..', 'tasks', 'net472',  'Fuser.dll'))</FuserAssembly>
+    <FuserAssembly Condition="!Exists('$(FuserAssembly)')">$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)', '..', 'bin', 'Debug', 'net472',  'Fuser.dll'))</FuserAssembly>
+  </PropertyGroup>
+  
+  <UsingTask
+    TaskName="Fuser.MergeAssembliesTask"
+    AssemblyFile="$(FuserAssembly)"
+    TaskFactory="TaskHostFactory" />
+
+</Project>

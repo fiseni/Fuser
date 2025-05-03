@@ -1,10 +1,5 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <UsingTask
-    TaskName="Fuser.MergeAssembliesTask"
-    AssemblyFile="$([MSBuild]::NormalizePath('$(MSBuildThisFileDirectory)', '..', 'tasks', 'Fuser.dll'))"
-    TaskFactory="TaskHostFactory" />
-
   <Target Name="FuserMergeAssemblies" AfterTargets="AfterBuild">
     <ItemGroup>
       <ReferencesToMerge Include="@(ReferencePath)" Condition="'%(ReferencePath.Merge)' == 'true'" />
@@ -16,4 +11,5 @@
       DeleteMergedFiles="true" />
 
   </Target>
+  
 </Project>
