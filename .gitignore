@@ -363,6 +363,8 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # Common IntelliJ Platform excludes
+/.idea
+
 # User specific
 **/.idea/**/workspace.xml
 **/.idea/**/tasks.xml
@@ -384,7 +386,8 @@ FodyWeavers.xsd
 **/.idea/**/contentModel.xml
 **/.idea/**/modules.xml
 
-# Developer config files
-**/appsettings.Development*.json
+# Verify
+*.received.*
+*.received/
 
 src/Fuser/tasks/
