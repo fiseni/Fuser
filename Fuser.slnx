@@ -1,0 +1,18 @@
+<Solution>
+  <Folder Name="/Samples/">
+    <Project Path="samples/Fuser.Lib1/Fuser.Lib1.csproj" />
+    <Project Path="samples/Fuser.Lib2/Fuser.Lib2.csproj" />
+    <Project Path="samples/Fuser.SampleApp/Fuser.SampleApp.csproj" />
+  </Folder>
+  <Folder Name="/_meta/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Packages.props" />
+    <File Path="exclusion.dic" />
+    <File Path="README.md" />
+    <File Path="src/ProjectMetadata.props" />
+    <File Path="src/ProjectMetadata.targets" />
+  </Folder>
+  <Project Path="src/Fuser/Fuser.csproj" />
+</Solution>
