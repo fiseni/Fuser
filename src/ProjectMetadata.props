@@ -3,7 +3,7 @@
   <PropertyGroup Label="Project Metadata">
     <Authors>Fati Iseni</Authors>
     <Company>Pozitron Group</Company>
-    <Copyright>Copyright © 2025 Pozitron Group</Copyright>
+    <Copyright>Copyright © 2026 Pozitron Group</Copyright>
     <Product>Pozitron MSBuild Tasks</Product>
 
     <PackageProjectUrl>https://github.com/fiseni/Fuser</PackageProjectUrl>
@@ -13,7 +13,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
     <PackageIconUrl>https://pozitrongroup.com/PozitronLogo.png</PackageIconUrl>
-    <PackageIcon>pozitronicon.png</PackageIcon>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
 </Project>
