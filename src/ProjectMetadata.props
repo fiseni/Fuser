@@ -12,7 +12,6 @@
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>readme-nuget.md</PackageReadmeFile>
-    <PackageIconUrl>https://pozitrongroup.com/PozitronLogo.png</PackageIconUrl>
     <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 
